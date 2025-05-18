@@ -46,12 +46,7 @@ const Hero = () => {
               >
                 Get Started
               </Link>
-              <Link
-                to="/register"
-                className="rounded-full px-6 py-3 bg-white text-indigo-700 border border-indigo-700 font-semibold hover:bg-indigo-50 transition duration-300 text-center"
-              >
-                Register
-              </Link>
+              
             </div>
 
             {/* Course Info Grid */}

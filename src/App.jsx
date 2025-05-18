@@ -13,6 +13,8 @@ import { CategoryFormPage } from './pages/CategoryFormPage'
 import Profile from './pages/Profile'
 import MyCourses from './pages/Mycourses'
 
+import Footer from './components/Footer';
+
 const LoadingSpinner = () => (
   <div className="flex items-center justify-center min-h-screen">
     <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
@@ -97,9 +99,12 @@ function App() {
                   <Route path="/categories/edit/:id" element={<CategoryFormPage />} />
                   <Route path="/profile" element={<Profile/>} />
                   <Route path="/my-courses" element={<MyCourses/>} />
+                  <Route path="/courses" element={<Courses />} />
+                
                 </Route>
 
               </Routes>
+              <Footer/>
             </div>
           </Router>
         </ErrorBoundary>
