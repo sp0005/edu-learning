@@ -10,20 +10,20 @@ import { Categories } from './pages/Categories'
 import { CourseDetail } from './pages/CourseDetail'
 import { CourseFormPage } from './pages/CourseFormPage'
 import { CategoryFormPage } from './pages/CategoryFormPage'
+import Profile from './pages/Profile'
+import MyCourses from './pages/Mycourses'
 
-// Loading component
 const LoadingSpinner = () => (
   <div className="flex items-center justify-center min-h-screen">
     <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
   </div>
 )
 
-// Query Client
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      staleTime: 5 * 60 * 1000, // 5 minutes
-      gcTime: 10 * 60 * 1000,   // 10 minutes
+      staleTime: 5 * 60 * 1000, 
+      gcTime: 10 * 60 * 1000,  
       retry: 1,
       refetchOnWindowFocus: false,
     },
@@ -79,7 +79,7 @@ function App() {
       <AuthProvider>
         <ErrorBoundary>
           <Router>
-            <div className="min-h-screen bg-gradient-to-br from-blue-900 via-blue-600 to-cyan-400">
+            <div className="min-h-screen bg-gray-50">
               <Navbar />
               <Routes>
                 <Route path="/" element={<Home />} />
@@ -87,6 +87,7 @@ function App() {
 
                 {/* All protected routes nested here */}
                 <Route element={<ProtectedRoute />}>
+
                   <Route path="/courses" element={<Courses />} />
                   <Route path="/courses/:id" element={<CourseDetail />} />
                   <Route path="/courses/new" element={<CourseFormPage />} />
@@ -94,8 +95,10 @@ function App() {
                   <Route path="/categories" element={<Categories />} />
                   <Route path="/categories/new" element={<CategoryFormPage />} />
                   <Route path="/categories/edit/:id" element={<CategoryFormPage />} />
-
+                  <Route path="/profile" element={<Profile/>} />
+                  <Route path="/my-courses" element={<MyCourses/>} />
                 </Route>
+
               </Routes>
             </div>
           </Router>

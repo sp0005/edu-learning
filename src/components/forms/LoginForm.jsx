@@ -1,11 +1,10 @@
-import React, { use } from 'react';
+import React from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { useAuth } from '../../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 
-// Validation schema
 const loginSchema = z.object({
 
     email: z.string().email('Please enter a valid email address'),
@@ -47,7 +46,7 @@ export default function LoginForm() {
                 noValidate
             >
                 <h2 className="text-3xl font-extrabold text-gray-900 text-center mb-6">
-                    Welcome Back
+                    Welcome!
                 </h2>
 
                 <div className="space-y-1">

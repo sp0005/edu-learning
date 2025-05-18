@@ -6,7 +6,7 @@ const Testimonials = () => {
         {
             name: "Sarah Johnson",
             location: "New York",
-            image: "/api/placeholder/64/64",
+            image: "/hero.jpg",
             content: "This platform transformed how I learn. The courses are engaging and the instructors are top-notch!",
             rating: 5
         },
@@ -27,46 +27,55 @@ const Testimonials = () => {
     ];
 
     return (
-        <div className="text-center  mb-12 mx-auto px-4 py-16 md:py-24 lg:px-30">
-            <p className="inline-block text-sm font-medium bg-primary/10 text-primary px-4 py-1.5 rounded-full mb-4">
-                Student Testimonials
-            </p>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">What Our Students Say</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto mb-12">
-                Real stories from learners who achieved their goals with us
-            </p>
+        <section className="bg-gray-50 py-16 md:py-24 px-4 md:px-8 lg:px-16">
+            <div className="text-center mb-12">
+                <p className="inline-block text-sm font-medium bg-indigo-100 text-indigo-700 px-4 py-1.5 rounded-full mb-4">
+                    Student Testimonials
+                </p>
+                <h2 className="text-4xl font-bold text-gray-900 mb-4">
+                    What Our Students Say
+                </h2>
+                <p className="text-gray-600 max-w-2xl mx-auto">
+                    Real stories from learners who achieved their goals through our platform.
+                </p>
+            </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                 {testimonials.map((testimonial, index) => (
-                    <div key={index} className="bg-white p-6 rounded-lg shadow-sm border border-border/20">
-                        <div className="flex items-center mb-4">
-                            <div className="relative w-12 h-12 mr-4">
-                                <img
-                                    src={testimonial.image}
-                                    alt={testimonial.name}
-                                    className="rounded-full object-cover"
-                                />
-                            </div>
-                            <div className="text-left">
-                                <h3 className="font-semibold">{testimonial.name}</h3>
-                                <p className="text-sm text-muted-foreground">{testimonial.location}</p>
+                    <div
+                        key={index}
+                        className="bg-white p-6 rounded-2xl border shadow hover:shadow-lg transition duration-300"
+                    >
+                        <div className="flex items-center gap-4 mb-4">
+                            <img
+                                src={testimonial.image}
+                                alt={testimonial.name}
+                                className="w-12 h-12 rounded-full object-cover border"
+                            />
+                            <div>
+                                <h4 className="font-semibold text-gray-900">{testimonial.name}</h4>
+                                <p className="text-sm text-gray-500">{testimonial.location}</p>
                             </div>
                         </div>
 
-                        <div className="flex mb-3">
+                        <div className="flex items-center mb-3">
                             {[...Array(5)].map((_, i) => (
                                 <Star
                                     key={i}
-                                    className={`w-4 h-4 ${i < testimonial.rating ? "text-yellow-400 fill-yellow-400" : "text-gray-300"}`}
+                                    className={`w-4 h-4 ${i < testimonial.rating
+                                        ? "text-yellow-400 fill-yellow-400"
+                                        : "text-gray-300"}`}
                                 />
                             ))}
                         </div>
 
-                        <p className="text-muted-foreground text-left">"{testimonial.content}"</p>
+                        <p className="text-gray-700 text-sm leading-relaxed">
+                            “{testimonial.content}”
+                        </p>
                     </div>
                 ))}
             </div>
-        </div>
+        </section>
     );
 };
 

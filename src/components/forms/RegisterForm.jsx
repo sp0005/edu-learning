@@ -4,7 +4,6 @@ import { z } from 'zod';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 
-// Validation schema
 const registerSchema = z
     .object({
         name: z.string().min(2, 'Name must be at least 2 characters'),
